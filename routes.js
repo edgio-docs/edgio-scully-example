@@ -1,15 +1,17 @@
-import { isProductionBuild } from '@layer0/core/environment'
-import { BACKENDS } from '@layer0/core/constants'
 import { Router } from '@layer0/core/router'
+import { isProductionBuild } from '@layer0/core/environment'
 
 const router = new Router()
 
 if (isProductionBuild()) {
   router.static('dist/static')
+  router.fallback(({ serveStatic }) => {
+    serveStatic('dist/static/index.html')
+  })
 } else {
-  router.fallback(({ proxy }) => {
-    proxy(BACKENDS.js)
+  router.fallback(({ renderWithApp }) => {
+    renderWithApp()
   })
 }
 
-export default router
+module.exports = router

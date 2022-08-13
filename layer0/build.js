@@ -7,7 +7,7 @@ const builder = new DeploymentBuilder(appDir)
 module.exports = async function build(options) {
   try {
     builder.clearPreviousBuildOutput()
-    let command = 'npm run build'
+    let command = 'npx ng build && npx scully'
     await builder.exec(command)
     await builder.build()
   } catch (e) {

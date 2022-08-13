@@ -2,16 +2,14 @@
   "name": "layer0-scully-example",
   "scripts": {
     "ng": "ng",
+    "scully": "scully",
     "start": "ng serve",
     "build": "ng build && scully",
-    "test": "ng test",
-    "lint": "ng lint",
     "layer0:dev": "layer0 dev",
     "layer0:build": "layer0 build",
     "layer0:deploy": "layer0 deploy",
-    "layer0:prod": "layer0 run --production",
-    "format": "prettier --write '**/*' --ignore-unknown",
-    "scully": "scully"
+    "layer0:production": "layer0 run --production",
+    "format": "prettier --write '**/*' --ignore-unknown"
   },
   "dependencies": {
     "@angular/animations": "~9.0.0-rc.7",
