@@ -5,11 +5,11 @@ const router = new Router()
 
 if (isProductionBuild()) {
   router.static('dist/static')
-  router.fallback(({ serveStatic }) => {
+  router.match('/:path*', ({ serveStatic }) => {
     serveStatic('dist/static/index.html')
   })
 } else {
-  router.fallback(({ renderWithApp }) => {
+  router.match('/:path*', ({ renderWithApp }) => {
     renderWithApp()
   })
 }
